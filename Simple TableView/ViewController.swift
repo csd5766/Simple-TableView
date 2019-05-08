@@ -39,6 +39,11 @@ class ViewController: UIViewController ,UITableViewDataSource{
         myCell.textLabel?.text = animals[myRow]
 //        myCell.detailTextLabel?.text = year[myRow]
         myCell.detailTextLabel?.text = "section = \(mySection) row = \(myRow)"
+        
+        //cell에 이미지 넣기
+        myCell.imageView?.image = UIImage(named: animals[myRow])
+        
+        
         return myCell
     
     }
