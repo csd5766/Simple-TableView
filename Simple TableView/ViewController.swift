@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController ,UITableViewDataSource{
+class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegate{
 
     @IBOutlet weak var myTableView: UITableView!
     var animals = ["Cat","Horse","Pig","Whale","Dog","Bird"]
@@ -18,6 +18,7 @@ class ViewController: UIViewController ,UITableViewDataSource{
         super.viewDidLoad()
        // Delegate 객체와 ViewController의 연결
         myTableView.dataSource = self
+        myTableView.delegate = self
     }
 
     
@@ -49,7 +50,7 @@ class ViewController: UIViewController ,UITableViewDataSource{
     }
 
      public func numberOfSections(in tableView: UITableView) ->Int{
-        return 2
+        return 1
     }
     
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
@@ -66,6 +67,10 @@ class ViewController: UIViewController ,UITableViewDataSource{
                 return "section footer \(section)"
             }
         }
+    // UITableViewDelegate 메소드 
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
+        return 100.0
+    }
         
         
     }
